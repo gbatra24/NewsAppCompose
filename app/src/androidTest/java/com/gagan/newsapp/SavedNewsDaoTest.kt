@@ -3,6 +3,7 @@ package com.gagan.newsapp
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.gagan.newsapp.data.database.dao.SavedNewsDao
 import com.gagan.newsapp.data.database.model.NewsEntity
 import com.gagan.newsapp.data.database.table.SavedNewsDatabase
@@ -12,7 +13,9 @@ import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
 
+@RunWith(AndroidJUnit4::class)
 class SavedNewsDaoTest {
 
     @get:Rule

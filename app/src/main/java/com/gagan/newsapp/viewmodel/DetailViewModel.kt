@@ -16,7 +16,7 @@ class DetailViewModel @Inject constructor(
     private val repository: NewsRepository
 ) : BaseViewModel() {
 
-    private val existNews = MutableLiveData<Boolean>()
+    val existNews = MutableLiveData<Boolean>()
     val existNewsLiveData: LiveData<Boolean>
         get() = existNews
 
