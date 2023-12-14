@@ -1,8 +1,20 @@
 package com.gagan.newsapp.ui.component
 
-import androidx.compose.animation.core.*
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.absolutePadding
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -16,6 +28,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.gagan.newsapp.R
 import com.gagan.newsapp.ui.theme.ShimmerColorShades
 
+const val BRUSH_OFFSET = 10f
+const val ITEM_COUNT = 6
+
 @Composable
 fun ShimmerHomeScreen() {
     HomeScreenShimmerAnimation()
@@ -24,7 +39,7 @@ fun ShimmerHomeScreen() {
 @Composable
 @Preview
 fun HomeScreenShimmerAnimation() {
-    val transition = rememberInfiniteTransition()
+    val transition = rememberInfiniteTransition(label = "")
     val translateAnim by transition.animateFloat(
         initialValue = 0f,
         targetValue = 3000f,
@@ -35,12 +50,12 @@ fun HomeScreenShimmerAnimation() {
                 delayMillis = 100
             ),
             repeatMode = RepeatMode.Reverse
-        )
+        ), label = ""
     )
 
     val brush = Brush.linearGradient(
         colors = ShimmerColorShades,
-        start = Offset(10f, 10f),
+        start = Offset(BRUSH_OFFSET, BRUSH_OFFSET),
         end = Offset(translateAnim, translateAnim)
     )
 
@@ -53,7 +68,7 @@ fun HomeScreenShimmerItem(
 ) {
     LazyColumn {
 
-        repeat(6) {
+        repeat(ITEM_COUNT) {
             item {
                 Row(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.dim_16dp),
                     start = dimensionResource(id = R.dimen.dim_16dp),

@@ -5,8 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import com.gagan.newsapp.base.BaseViewModel
+import com.gagan.newsapp.data.NewsDataManager
 import com.gagan.newsapp.data.model.NewsModel
 import com.gagan.newsapp.data.repository.NewsRepository
+import com.gagan.newsapp.utils.constants.Constants
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -25,8 +27,9 @@ class NewsViewModel @Inject constructor(
         get() = headlineNews
 
     fun fetchHeadlineNews() = viewModelScope.launch(exceptionHandler) {
-        delay(3000)
+        delay(Constants.API_TIMEOUT.toLong())
         headlineNews.value = (repository.getHeadlineNews())
+        NewsDataManager.news = repository.getHeadlineNews()
     }
 
     fun tryAgain() {

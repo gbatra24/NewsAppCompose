@@ -10,13 +10,11 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import com.gagan.newsapp.R
 import com.gagan.newsapp.ui.theme.Grey
 import com.gagan.newsapp.ui.theme.LightGrey
-import com.gagan.newsapp.R
 
-@Preview
 @Composable
 fun ItemHeaderTitle(title: String = "Title") {
     Text(

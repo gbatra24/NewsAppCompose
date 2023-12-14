@@ -1,8 +1,10 @@
 package com.gagan.newsapp.data.database.dao
 
-import androidx.room.*
-
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
 import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.gagan.newsapp.data.database.model.NewsEntity
 import com.gagan.newsapp.utils.constants.Constants.SAVED_NEWS_TABLE
 

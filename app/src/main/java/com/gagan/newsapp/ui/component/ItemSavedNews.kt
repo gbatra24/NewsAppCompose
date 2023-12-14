@@ -1,6 +1,5 @@
 package com.gagan.newsapp.ui.component
 
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -36,8 +35,6 @@ import com.gagan.newsapp.ui.theme.LightGrey
 import com.gagan.newsapp.ui.theme.RippleGrey
 import com.gagan.newsapp.ui.theme.RippleWhite
 import com.gagan.newsapp.utils.constants.Constants
-import com.gagan.newsapp.utils.constants.Constants.NEWS_BUNDLE_KEY
-import com.gagan.newsapp.utils.extentions.putParcelableBundle
 import com.gagan.newsapp.utils.library.paintImage
 
 @ExperimentalCoilApi
@@ -77,8 +74,7 @@ fun ItemSavedNews(
                         interactionSource = remember { MutableInteractionSource() },
                         indication = rememberRipple(color = RippleWhite),
                         onClick = {
-                            navController.putParcelableBundle(key = NEWS_BUNDLE_KEY, value = news)
-                            navController.navigate(Screen.DetailScreen.withArgs(Constants.SCREEN_DETAILS))
+                            navController.navigate(Screen.DetailScreen.withArgs(news.title))
                         }
                     )
             )

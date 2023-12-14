@@ -3,9 +3,13 @@ package com.gagan.newsapp.ui.screens
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
@@ -30,7 +34,6 @@ import com.gagan.newsapp.R
 @Composable
 fun SavedScreen(
     navController: NavController,
-    name: String?,
     savedViewModel: SavedViewModel = hiltViewModel()
 ) {
     val savedNews by savedViewModel.savedNewsLiveData.observeAsState(listOf())
@@ -55,7 +58,7 @@ fun SavedScreen(
                     .fillMaxHeight()
                     .fillMaxWidth()
                     .background(LightGrey),
-                cells = GridCells.Fixed(2),
+                columns = GridCells.Fixed(2),
                 contentPadding = PaddingValues(dimensionResource(id = R.dimen.dim_8dp))
             ) {
                 savedNews.map {

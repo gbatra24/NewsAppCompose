@@ -15,7 +15,7 @@ class SavedViewModel @Inject constructor(
     private val repository: NewsRepository
 ) : BaseViewModel() {
 
-    val savedNews = MutableLiveData<List<NewsModel>>()
+    private val savedNews = MutableLiveData<List<NewsModel>>()
     val savedNewsLiveData: LiveData<List<NewsModel>>
         get() = savedNews
 

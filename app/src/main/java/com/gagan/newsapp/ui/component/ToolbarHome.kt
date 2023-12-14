@@ -4,13 +4,16 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.ModalBottomSheetState
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color.Companion.White
@@ -26,10 +29,10 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavController
 import coil.annotation.ExperimentalCoilApi
-import com.gagan.newsapp.ui.screens.Screen
-import com.gagan.newsapp.ui.theme.MediumGrey
 import com.gagan.newsapp.R
+import com.gagan.newsapp.ui.screens.Screen
 import com.gagan.newsapp.ui.theme.Grey
+import com.gagan.newsapp.ui.theme.MediumGrey
 import com.gagan.newsapp.utils.constants.Constants
 
 @ExperimentalMaterialApi
@@ -39,7 +42,6 @@ import com.gagan.newsapp.utils.constants.Constants
 fun ToolbarHome(
     navController: NavController
 ) {
-    val scope = rememberCoroutineScope()
 
     Column {
         ConstraintLayout(

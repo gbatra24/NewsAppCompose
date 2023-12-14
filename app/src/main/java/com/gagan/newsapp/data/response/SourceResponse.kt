@@ -1,12 +1,15 @@
 package com.gagan.newsapp.data.response
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
 
-@JsonClass(generateAdapter = true)
 data class SourceResponse(
-    @Json(name = "id")
+
+    @SerializedName("id")
+    @Expose
     val id: String?,
-    @Json(name = "name")
+
+    @SerializedName("name")
+    @Expose
     val name: String?
 )

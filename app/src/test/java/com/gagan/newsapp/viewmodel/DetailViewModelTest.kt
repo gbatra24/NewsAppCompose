@@ -1,19 +1,15 @@
 package com.gagan.newsapp.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.gagan.newsapp.data.database.model.NewsEntity
-import com.gagan.newsapp.data.model.NewsModel
-import com.gagan.newsapp.data.model.SourceModel
 import com.gagan.newsapp.data.repository.NewsRepository
 import com.gagan.newsapp.getOrAwaitValue
 import com.nhaarman.mockitokotlin2.anyOrNull
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
-import org.junit.Assert.*
-
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
@@ -23,6 +19,7 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 
+@OptIn(ExperimentalCoroutinesApi::class)
 class DetailViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()

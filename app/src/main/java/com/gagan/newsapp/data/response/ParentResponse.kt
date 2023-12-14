@@ -1,12 +1,15 @@
 package com.gagan.newsapp.data.response
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
 
-@JsonClass(generateAdapter = true)
 data class ParentResponse(
-    @Json(name = "articles")
+
+    @SerializedName("articles")
+    @Expose
     val articles: List<NewsResponse>,
-    @Json(name = "totalResults")
+
+    @SerializedName("totalResults")
+    @Expose
     val totalResults: Int
 )

@@ -4,7 +4,13 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.material.ripple.rememberRipple
@@ -29,8 +35,6 @@ import com.gagan.newsapp.ui.theme.Grey
 import com.gagan.newsapp.ui.theme.LightGrey
 import com.gagan.newsapp.ui.theme.MediumGrey
 import com.gagan.newsapp.ui.theme.RippleGrey
-import com.gagan.newsapp.utils.constants.Constants.NEWS_BUNDLE_KEY
-import com.gagan.newsapp.utils.extentions.putParcelableBundle
 import com.gagan.newsapp.utils.library.paintImage
 import com.gagan.newsapp.R
 import com.gagan.newsapp.utils.constants.Constants
@@ -54,7 +58,6 @@ fun ItemNews(
                 bottom = dimensionResource(R.dimen.dim_8dp)
             )
     ) {
-        val (card, image) = createRefs()
 
         Row(
             modifier = Modifier
@@ -71,8 +74,7 @@ fun ItemNews(
                         dimensionResource(id = R.dimen.dim_120dp))
                     .clickable(
                         onClick = {
-                            navController.putParcelableBundle(key = NEWS_BUNDLE_KEY, value = news)
-                            navController.navigate(Screen.DetailScreen.withArgs(Constants.SCREEN_DETAILS))
+                            navController.navigate(Screen.DetailScreen.withArgs(news.title))
                         }
                     )
 
@@ -87,8 +89,7 @@ fun ItemNews(
                         interactionSource = remember { MutableInteractionSource() },
                         indication = rememberRipple(color = RippleGrey),
                         onClick = {
-                            navController.putParcelableBundle(key = NEWS_BUNDLE_KEY, value = news)
-                            navController.navigate(Screen.DetailScreen.withArgs(Constants.SCREEN_DETAILS))
+                            navController.navigate(Screen.DetailScreen.withArgs(news.title))
                         }
                     )
             ) {

@@ -1,24 +1,29 @@
 buildscript {
     ext {
-        kotlin_version = '1.5.21'
-        compose_version = '1.0.2'
+        kotlin_version = '1.9.10'
+        compose_version = '1.5.3'
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        def gradle = '7.0.3'
+        def gradle = '8.2.0'
         classpath "com.android.tools.build:gradle:$gradle"
 
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
-        def hilt = "2.38.1"
+        def hilt = '2.48'
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt"
+
+        def detekt='1.18.1'
+        classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detekt"
+
+        classpath "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin:1.5.30-1.0.0-beta09"
+
     }
 }
 
-task clean(type: Delete) {
+tasks.register('clean', Delete) {
     delete rootProject.buildDir
 }

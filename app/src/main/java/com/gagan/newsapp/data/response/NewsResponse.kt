@@ -1,24 +1,40 @@
 package com.gagan.newsapp.data.response
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
 
-@JsonClass(generateAdapter = true)
+
 data class NewsResponse(
-    @Json(name = "author")
+
+    @SerializedName("author")
+    @Expose
     val author: String?,
-    @Json(name = "title")
+
+    @SerializedName("title")
+    @Expose
     val title: String?,
-    @Json(name = "description")
+
+    @SerializedName("description")
+    @Expose
     val description: String?,
-    @Json(name = "url")
+
+    @SerializedName("url")
+    @Expose
     val url: String?,
-    @Json(name = "urlToImage")
+
+    @SerializedName("urlToImage")
+    @Expose
     val urlToImage: String?,
-    @Json(name = "publishedAt")
+
+    @SerializedName("publishedAt")
+    @Expose
     val publishedAt: String?,
-    @Json(name = "content")
+
+    @SerializedName("content")
+    @Expose
     val content: String?,
-    @Json(name = "source")
+
+    @SerializedName("source")
+    @Expose
     val source: SourceResponse?
 )

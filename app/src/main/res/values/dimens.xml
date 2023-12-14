@@ -1,44 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-<!--    DP Values-->
     <dimen name="dim_0.5dp">0.5dp</dimen>
     <dimen name="dim_1dp">1dp</dimen>
-    <dimen name="dim_2dp">2dp</dimen>
     <dimen name="dim_3dp">3dp</dimen>
-    <dimen name="dim_4dp">4dp</dimen>
-    <dimen name="dim_6dp">6dp</dimen>
     <dimen name="dim_8dp">8dp</dimen>
     <dimen name="dim_10dp">10dp</dimen>
     <dimen name="dim_12dp">12dp</dimen>
-    <dimen name="dim_14dp">14dp</dimen>
     <dimen name="dim_15dp">15dp</dimen>
     <dimen name="dim_16dp">16dp</dimen>
     <dimen name="dim_17dp">17dp</dimen>
-    <dimen name="dim_18dp">18dp</dimen>
     <dimen name="dim_20dp">20dp</dimen>
     <dimen name="dim_23dp">23dp</dimen>
     <dimen name="dim_25dp">25dp</dimen>
-    <dimen name="dim_30dp">30dp</dimen>
     <dimen name="dim_40dp">40dp</dimen>
-    <dimen name="dim_50dp">50dp</dimen>
     <dimen name="dim_60dp">60dp</dimen>
     <dimen name="dim_70dp">70dp</dimen>
     <dimen name="dim_100dp">100dp</dimen>
     <dimen name="dim_120dp">120dp</dimen>
     <dimen name="dim_200dp">200dp</dimen>
     <dimen name="dim_300dp">300dp</dimen>
-
-
-<!--    SP Values-->
-    <dimen name="dim_4sp">4sp</dimen>
-    <dimen name="dim_6sp">6sp</dimen>
-    <dimen name="dim_8sp">8sp</dimen>
-    <dimen name="dim_10sp">10sp</dimen>
-    <dimen name="dim_12sp">12sp</dimen>
-    <dimen name="dim_14sp">14sp</dimen>
-    <dimen name="dim_16sp">16sp</dimen>
-    <dimen name="dim_18sp">18sp</dimen>
-    <dimen name="dim_20sp">20sp</dimen>
 
 </resources>

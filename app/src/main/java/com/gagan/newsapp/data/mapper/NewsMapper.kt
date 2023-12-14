@@ -8,11 +8,16 @@ import com.gagan.newsapp.data.response.SourceResponse
 import com.gagan.newsapp.utils.constants.Constants
 import javax.inject.Inject
 
-class NewsMapper @Inject constructor(
-    private val sourceMapper: Mapper<SourceResponse, SourceModel>
-) : Mapper<NewsResponse, NewsModel> {
+
+class NewsMapper @Inject constructor() : Mapper<NewsResponse, NewsModel> {
 
     override fun mapResponseToModel(response: NewsResponse): NewsModel {
+        val sourceModel = if (response.source?.id != null && response.source.name != null) {
+            SourceModel(response.source.id, response.source.name)
+        } else {
+            SourceModel(Constants.EMPTY, Constants.EMPTY)
+        }
+
         return NewsModel(
             author = response.author ?: Constants.EMPTY,
             title = response.title ?: Constants.EMPTY,
@@ -21,11 +26,13 @@ class NewsMapper @Inject constructor(
             url = response.url ?: Constants.EMPTY,
             urlToImage = response.urlToImage ?: Constants.EMPTY,
             publishedAt = response.publishedAt ?: Constants.EMPTY,
-            sourceModel = response.source?.let { sourceMapper.mapResponseToModel(it) }
+            sourceModel = sourceModel
         )
     }
 
     override fun mapModelToResponse(model: NewsModel): NewsResponse {
+        val sourceResponse = SourceResponse(model.sourceModel?.id,model.sourceModel?.name)
+
         return NewsResponse(
             author = model.author,
             title = model.title,
@@ -34,7 +41,7 @@ class NewsMapper @Inject constructor(
             url = model.url,
             urlToImage = model.urlToImage,
             publishedAt = model.publishedAt,
-            source = model.sourceModel?.let { sourceMapper.mapModelToResponse(it) }
+            source = sourceResponse
         )
     }
 

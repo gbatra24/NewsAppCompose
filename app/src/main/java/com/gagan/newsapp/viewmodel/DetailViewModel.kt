@@ -3,11 +3,10 @@ package com.gagan.newsapp.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import dagger.hilt.android.lifecycle.HiltViewModel
 import com.gagan.newsapp.base.BaseViewModel
 import com.gagan.newsapp.data.model.NewsModel
 import com.gagan.newsapp.data.repository.NewsRepository
-import kotlinx.coroutines.Dispatchers
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -16,7 +15,7 @@ class DetailViewModel @Inject constructor(
     private val repository: NewsRepository
 ) : BaseViewModel() {
 
-    val existNews = MutableLiveData<Boolean>()
+    private val existNews = MutableLiveData<Boolean>()
     val existNewsLiveData: LiveData<Boolean>
         get() = existNews
 

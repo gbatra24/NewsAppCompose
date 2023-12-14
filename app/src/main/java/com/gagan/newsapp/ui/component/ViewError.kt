@@ -3,7 +3,12 @@ package com.gagan.newsapp.ui.component
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.OutlinedButton
@@ -67,7 +72,7 @@ fun ViewError(
             border = BorderStroke(dimensionResource(id = R.dimen.dim_1dp), Grey),
             modifier = Modifier
                 .padding(top = dimensionResource(id = R.dimen.dim_20dp)),
-            shape = RoundedCornerShape(50),
+            shape = RoundedCornerShape(Constants.ROUND_CORNER_50),
             colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.LightGray)
         ){
             Text( text = "try again" )

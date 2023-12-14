@@ -4,10 +4,19 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
@@ -24,7 +33,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.annotation.ExperimentalCoilApi
 import com.gagan.newsapp.R
-import com.gagan.newsapp.data.model.NewsModel
+import com.gagan.newsapp.data.NewsDataManager
 import com.gagan.newsapp.ui.component.ToolbarDetail
 import com.gagan.newsapp.ui.theme.Grey
 import com.gagan.newsapp.ui.theme.MediumGrey
@@ -40,11 +49,11 @@ import com.gagan.newsapp.viewmodel.DetailViewModel
 fun DetailScreen(
     navController: NavController,
     name: String?,
-    news: NewsModel?,
     detailViewModel: DetailViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
     val existNews by detailViewModel.existNewsLiveData.observeAsState(false)
+    val news = name?.let { NewsDataManager.getArticle(it) }
 
     detailViewModel.fetchIsBookmarked(news?.url.orEmpty())
 
