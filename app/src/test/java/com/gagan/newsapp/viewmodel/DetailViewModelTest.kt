@@ -1,6 +1,8 @@
 package com.gagan.newsapp.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.gagan.newsapp.data.model.NewsModel
+import com.gagan.newsapp.data.model.SourceModel
 import com.gagan.newsapp.data.repository.NewsRepository
 import com.gagan.newsapp.getOrAwaitValue
 import com.nhaarman.mockitokotlin2.anyOrNull
@@ -57,16 +59,19 @@ class DetailViewModelTest {
 //    fun test_fetchDeleteNews() = runTest {
 //        val article = NewsModel("this is author", "this is title",
 //            "this is description", "url", "this is image url",
-//            "","Content",SourceModel("source id", "this is source"))
+//            "","Content", SourceModel("source id", "this is source")
+//        )
 //
 //        val vm = DetailViewModel(repository)
+//        vm.fetchSaveNews(article)
 //        vm.fetchDeleteNews(article)
+//        vm.fetchIsBookmarked(article.url)
 //        testDispatcher.scheduler.advanceUntilIdle()
-//        val result = vm.fetchIsBookmarked(article.url)
+//        val result = vm.existNewsLiveData.getOrAwaitValue()
 //        Assert.assertEquals(false, result)
 //
 //    }
-//
+
 //    @Test
 //    fun test_fetchSaveNews() {
 //        val article = NewsModel("this is author", "this is title",
@@ -77,10 +82,8 @@ class DetailViewModelTest {
 //        vm.fetchSaveNews(article)
 //        testDispatcher.scheduler.advanceUntilIdle()
 //
-//        var result = vm.fetchIsBookmarked(article.url)
+//        val result = vm.existNewsLiveData.getOrAwaitValue()
 //        Assert.assertEquals(true, result)
-//
-//        result = vm.fetchIsBookmarked("")
 //        Assert.assertEquals(false, result)
 //    }
 }

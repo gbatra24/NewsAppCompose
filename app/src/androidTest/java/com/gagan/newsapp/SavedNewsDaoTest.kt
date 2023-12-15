@@ -21,8 +21,8 @@ class SavedNewsDaoTest {
     @get:Rule
     val instantExecutorRule = InstantTaskExecutorRule()
 
-    lateinit var newsDao: SavedNewsDao
-    lateinit var newsDatabase: SavedNewsDatabase
+    private lateinit var newsDao: SavedNewsDao
+    private lateinit var newsDatabase: SavedNewsDatabase
 
     @Before
     fun setUp(){
