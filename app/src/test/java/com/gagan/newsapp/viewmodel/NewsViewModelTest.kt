@@ -52,4 +52,15 @@ class NewsViewModelTest {
         Assert.assertEquals( 0, result.size)
     }
 
+    @Test
+    fun test_tryAgain() = runTest {
+        Mockito.`when`(repository.getHeadlineNews()).thenReturn(emptyList())
+
+        val vm = NewsViewModel(repository)
+        vm.tryAgain()
+        testDispatcher.scheduler.advanceUntilIdle()
+        val result = vm.headlineNewsLiveData.getOrAwaitValue()
+        Assert.assertEquals( 0, result.size)
+    }
+
 }
